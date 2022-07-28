@@ -6,6 +6,7 @@ h1 {
   font-size: 40px;
   font-weight: 100;
   line-height: 28px;
+  margin-bottom: 0;
 }
 
 ul {
@@ -24,10 +25,31 @@ li {
   line-height: 19px;
 }
 
-.container {
+.weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
+}
+.weather-app {
   padding: 20px;
   border: 1px solid #a7bcb9;
   border-radius: 10px;
+}
+.overview {
+  margin-bottom: 20px;
+}
+.weather-temperature img {
+  margin-right: 5px;
+  height: 80px;
+  width: 80px;
+}
+.weather-temperature strong {
+  color: rgb(33, 33, 33);
+  font-size: 70px;
+  line-height: 1;
+  font-weight: 400;
+}
+.weather-temperature .units {
+  position: relative;
+  font-size: 16px;
+  top: -34px;
 }
