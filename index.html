@@ -10,17 +10,17 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" href="src/style.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
         <div class="weather-app">
           <div class="overview">
-            <h1 id="city">Odessa</h1>
+            <h1 id="city"></h1>
             <ul>
               <li><span id="date">Wednesday 27.07</span></li>
-              <li id="description">Clear</li>
+              <li id="description"></li>
             </ul>
           </div>
           <div class="row">
@@ -33,16 +33,16 @@
                   class="float-left"
                 />
                 <span class="float-left">
-                  <strong>26</strong
-                  ><span class="units">°C|<a href="">F</a> </span>
+                  <strong id="temperature">26</strong
+                  ><span class="units">°C | <a href="">°F</a> </span>
                 </span>
               </div>
             </div>
             <div class="col-6">
-              <div id="indicators">
+              <div class="indicators">
                 <ul>
                   <li>Humidity: <span id="humidity"></span>%</li>
-                  <li>Wind: <span id="wind"></span> m/h</li>
+                  <li>Wind: <span id="wind"></span> Km/h</li>
                 </ul>
               </div>
             </div>

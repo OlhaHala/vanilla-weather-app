@@ -18,7 +18,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-
+  text-transform: capitalize;
   color: rgb(135, 135, 135);
   font-size: 16px;
   font-weight: 100;
@@ -26,13 +26,15 @@ li {
 }
 
 .weather-app-wrapper {
-  max-width: 600px;
+  max-width: 550px;
   margin: 30px auto;
 }
 .weather-app {
   padding: 20px;
   border: 1px solid #a7bcb9;
   border-radius: 10px;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
+  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
 }
 .overview {
   margin-bottom: 20px;
@@ -52,4 +54,7 @@ li {
   position: relative;
   font-size: 16px;
   top: -34px;
+}
+.indicators {
+  padding-left: 60px;
 }
