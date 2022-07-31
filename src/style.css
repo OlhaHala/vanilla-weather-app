@@ -46,8 +46,8 @@ a {
 }
 .weather-temperature img {
   margin-right: 5px;
-  height: 80px;
-  width: 80px;
+  height: 70px;
+  width: 70px;
 }
 .weather-temperature strong {
   color: rgb(33, 33, 33);
