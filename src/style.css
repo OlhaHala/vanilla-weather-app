@@ -1,8 +1,9 @@
 body {
   font-family: arial, sans-serif;
 }
+
 h1 {
-  color: #a7bcb9;
+  color: #5c5470;
   font-size: 40px;
   font-weight: 100;
   line-height: 28px;
@@ -18,8 +19,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-
-  color: rgb(135, 135, 135);
+  color: #5c5470;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -30,6 +30,9 @@ li:first-letter {
 a {
   text-decoration: none;
 }
+.dark-theme {
+  background-color: black;
+}
 .weather-app-wrapper {
   max-width: 550px;
   margin: 30px auto;
@@ -39,7 +42,20 @@ a {
   border: 1px solid #a7bcb9;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
-  background: linear-gradient(to top, #dfe9f3 0%, white 100%);
+background: linear-gradient(-45deg, #a6e4e7, #ebcbae, #f286e2, #681d7a);
+  background-size: 400% 400%;
+  animation: gradient 10s ease infinite;}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
 }
 .overview {
   margin-bottom: 20px;
@@ -50,7 +66,7 @@ a {
   width: 70px;
 }
 .weather-temperature strong {
-  color: rgb(33, 33, 33);
+  color: #5c5470;
   font-size: 70px;
   line-height: 1;
   font-weight: 400;
@@ -64,7 +80,7 @@ a {
   padding-left: 60px;
 }
 .weather-temperature .active {
-  color: rgb(33, 33, 33);
+  color: #5c5470;
   cursor: default;
 }
 .weather-temperature .active :hover {
