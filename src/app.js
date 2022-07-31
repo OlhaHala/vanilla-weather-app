@@ -30,7 +30,8 @@ function displayTemperature(response) {
   let windElement = document.querySelector(`#wind`);
   let dateElement = document.querySelector(`#date`);
   let iconElement = document.querySelector(`#icon`);
-  tempElement.innerHTML = Math.round(response.data.main.temp);
+  celsiusTemp = response.data.main.temp;
+  tempElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
   humidityElement.innerHTML = response.data.main.humidity;
@@ -52,6 +53,30 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-search("Paris");
+function displayFarenheitTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.remove("active");
+  farenheitLink.classList.add("active");
+  let tempratureElement = document.querySelector("#temperature");
+  let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
+
+  tempratureElement.innerHTML = Math.round(farenheitTemp);
+}
+function displayCelsiusTemp(event) {
+  event.preventDefault();
+  celsiusLink.classList.add("active");
+  farenheitLink.classList.remove("active");
+  let tempratureElement = document.querySelector("#temperature");
+  tempratureElement.innerHTML = Math.round(celsiusTemp);
+}
+
+let celsiusTemp = null;
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let farenheitLink = document.querySelector("#farenheit-link");
+farenheitLink.addEventListener("click", displayFarenheitTemp);
+let celsiusLink = document.querySelector("#celsius-link");
+celsiusLink.addEventListener("click", displayCelsiusTemp);
+search("Odessa");
