@@ -7,7 +7,7 @@ h1 {
   font-size: 40px;
   font-weight: 100;
   line-height: 28px;
-  margin-bottom: 0;
+  margin-bottom: 5px;
 }
 
 ul {
@@ -42,9 +42,10 @@ a {
   border: 1px solid #a7bcb9;
   border-radius: 10px;
   box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
-background: linear-gradient(-45deg, #a6e4e7, #ebcbae, #f286e2, #681d7a);
+  background: linear-gradient(-45deg, #a6e4e7, #ebcbae, #f286e2, #681d7a);
   background-size: 400% 400%;
-  animation: gradient 10s ease infinite;}
+  animation: gradient 10s ease infinite;
+}
 
 @keyframes gradient {
   0% {
@@ -85,4 +86,14 @@ background: linear-gradient(-45deg, #a6e4e7, #ebcbae, #f286e2, #681d7a);
 }
 .weather-temperature .active :hover {
   text-decoration: none;
+}
+.weather-forecast {
+  text-align: center;
+  margin-top: 10px;
+}
+.weather-forecast-date {
+  font-size: 16px;
+}
+.weather-forecast-temp {
+  font-size: 13px;
 }

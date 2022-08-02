@@ -14,7 +14,7 @@
   </head>
   <body>
     <div class="container">
-      <div >
+      <div>
         <div class="weather-app-wrapper">
           <div class="weather-app">
             <form id="search-form" class="mb-3">
@@ -47,7 +47,7 @@
             <div class="row">
               <div class="col-6">
                 <div class="clearfix weather-temperature">
-                  <img src="" alt="Clear" id="icon" class="float-left" />
+                  <img src="#" alt="Clear" id="icon" class="float-left" />
                   <span class="float-left">
                     <strong id="temperature"></strong>
                     <span class="units"
@@ -66,16 +66,33 @@
                 </div>
               </div>
             </div>
+            <div class="weather-forecast">
+              <div class="row">
+                <div class="col-3">
+                  <div class="weather-forecast-date">Sunday</div>
+                  <img
+                    src="http://openweathermap.org/img/wn/50d@2x.png"
+                    alt=""
+                    width="50"
+                  />
+                  <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-max">25°</span>
+                    <span class="weather-forecast-temp-min">20°</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        
-        <small id="creator">
-          <a
-            href="https://github.com/OlhaHala/vanilla-weather-app"
-            target="_blank"
-            >Open-source code</a
-          >
-          by Olha Haladzhian
-        </small>
+
+          <small id="creator">
+            <a
+              href="https://github.com/OlhaHala/vanilla-weather-app"
+              target="_blank"
+              >Open-source code</a
+            >
+            by Olha Haladzhian
+          </small>
+        </div>
       </div>
     </div>
     <script src="src/app.js"></script>
