@@ -18,9 +18,48 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-
   return `${day} ${hours}:${minutes}`;
 }
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+                  <div class="weather-forecast-date">Sunday</div>
+                  <img
+                    src="http://openweathermap.org/img/wn/50d@2x.png"
+                    alt=""
+                    width="42"
+                  />
+                  <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-max">25°</span>
+                    <span class="weather-forecast-temp-min">20°</span>
+                  </div>
+                </div>
+              
+            `;
+  forecastHTML =
+    forecastHTML +
+    `<div class="col-2">
+                  <div class="weather-forecast-date">Sunday</div>
+                  <img
+                    src="http://openweathermap.org/img/wn/50d@2x.png"
+                    alt=""
+                    width="42"
+                  />
+                  <div class="weather-forecast-temp">
+                    <span class="weather-forecast-temp-max">25°</span>
+                    <span class="weather-forecast-temp-min">20°</span>
+                  </div>
+                </div>
+             
+            `;
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();
 
 function displayTemperature(response) {
   let tempElement = document.querySelector(`#temperature`);
@@ -79,6 +118,4 @@ let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
-search("Odessa");
-
-
+search("Odesa");
