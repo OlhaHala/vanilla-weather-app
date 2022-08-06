@@ -21,10 +21,11 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-function displayForecast() {
+function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
+  console.log(response.data.daily);
   let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
+  let forecastHTML = `<div class="row">`;
   days.forEach(function (day) {
     forecastHTML =
       forecastHTML +
@@ -44,7 +45,13 @@ function displayForecast() {
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
 }
-displayForecast();
+
+function getForecast(coordinates) {
+  console.log(coordinates);
+  let apiKey = "6787254059ff334afbc56a41b925e8c5";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayForecast);
+}
 
 function displayTemperature(response) {
   let tempElement = document.querySelector(`#temperature`);
@@ -54,7 +61,9 @@ function displayTemperature(response) {
   let windElement = document.querySelector(`#wind`);
   let dateElement = document.querySelector(`#date`);
   let iconElement = document.querySelector(`#icon`);
+
   celsiusTemp = response.data.main.temp;
+
   tempElement.innerHTML = Math.round(celsiusTemp);
   cityElement.innerHTML = response.data.name;
   descriptionElement.innerHTML = response.data.weather[0].description;
@@ -66,6 +75,7 @@ function displayTemperature(response) {
     `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
   );
   iconElement.setAttribute("alt", response.data.weather[0].description);
+  getForecast(response.data.coord);
 }
 function search(city) {
   let apiKey = "6787254059ff334afbc56a41b925e8c5";
@@ -103,4 +113,5 @@ let farenheitLink = document.querySelector("#farenheit-link");
 farenheitLink.addEventListener("click", displayFarenheitTemp);
 let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemp);
+
 search("Odesa");
