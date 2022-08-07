@@ -21,26 +21,50 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let day = date.getDay();
+  let days = [
+    "Sunday",
+    "Monday",
+    "Tuesaday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  return days[day];
+}
+
 function displayForecast(response) {
+  let forecast = response.data.daily;
   let forecastElement = document.querySelector("#forecast");
-  console.log(response.data.daily);
-  let days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday"];
   let forecastHTML = `<div class="row">`;
-  days.forEach(function (day) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col-2">
-                  <div class="weather-forecast-date">${day}</div>
+  forecast.forEach(function (forecastDay, index) {
+    if (index < 5) {
+      forecastHTML =
+        forecastHTML +
+        `<div class="col-2">
+                  <div class="weather-forecast-date">${formatDay(
+                    forecastDay.dt
+                  )}</div>
                   <img
-                    src="http://openweathermap.org/img/wn/50d@2x.png"
+                    src="http://openweathermap.org/img/wn/${
+                      forecastDay.weather[0].icon
+                    }.png"
                     alt=""
                     width="42"
                   />
                   <div class="weather-forecast-temp">
-                    <span class="weather-forecast-temp-max">25°</span>
-                    <span class="weather-forecast-temp-min">20°</span>
+                    <span class="weather-forecast-temp-max">${Math.round(
+                      forecastDay.temp.max
+                    )}°</span>
+                    <span class="weather-forecast-temp-min">${Math.round(
+                      forecastDay.temp.min
+                    )}°</span>
                   </div>
                 </div>`;
+    }
   });
   forecastHTML = forecastHTML + `</div>`;
   forecastElement.innerHTML = forecastHTML;
