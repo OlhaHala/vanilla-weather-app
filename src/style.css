@@ -1,9 +1,26 @@
 body {
   font-family: arial, sans-serif;
+  background-color: #fdffcd;
 }
-
+.dark {
+  background: -webkit-linear-gradient(
+    180deg,
+    rgb(4, 3, 24) 29%,
+    rgb(10, 6, 79) 76%
+  );
+  background: -moz-linear-gradient(
+    180deg,
+    rgb(4, 3, 24) 29%,
+    rgb(10, 6, 79) 76%
+  );
+  background: linear-gradient(180deg, rgb(4, 3, 24) 29%, rgb(10, 6, 79) 76%);
+  padding: 20px;
+  border: 1px solid #a7bcb9;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
+  border-radius: 10px;
+  color: beige;
+}
 h1 {
-  color: #5c5470;
   font-size: 40px;
   font-weight: 100;
   line-height: 28px;
@@ -19,7 +36,7 @@ li {
   list-style: none;
   margin: 0;
   padding: 0;
-  color: #5c5470;
+
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
@@ -30,14 +47,12 @@ li:first-letter {
 a {
   text-decoration: none;
 }
-.dark-theme {
-  background-color: black;
-}
+
 .weather-app-wrapper {
   max-width: 600px;
   margin: 30px auto;
 }
-.weather-app {
+.light {
   padding: 20px;
   border: 1px solid #a7bcb9;
   border-radius: 10px;
@@ -45,8 +60,8 @@ a {
   background: linear-gradient(-45deg, #a6e4e7, #ebcbae, #f286e2, #681d7a);
   background-size: 400% 400%;
   animation: gradient 10s ease infinite;
+  color: #5c5470;
 }
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;
@@ -68,7 +83,6 @@ a {
   width: 80px;
 }
 .weather-temperature strong {
-  color: #5c5470;
   font-size: 70px;
   line-height: 1;
   font-weight: 400;
@@ -79,15 +93,12 @@ a {
   top: -34px;
 }
 .indicators {
-  padding-left: 60px;
+  padding-left: 100px;
 }
 .weather-temperature .active {
-  color: #5c5470;
   cursor: default;
 }
-.weather-temperature .active :hover {
-  text-decoration: none;
-}
+
 .weather-forecast {
   text-align: center;
   margin-top: 10px;
@@ -97,4 +108,15 @@ a {
 }
 .weather-forecast-temp {
   font-size: 13px;
+}
+.btn-toggle {
+  display: block;
+  margin: 0 auto;
+  border-radius: 5px;
+  color: #5c5470;
+  box-shadow: 5px 5px 10px rgb(0 0 0 / 10%);
+  border-color: white;
+  background-color: #ffb5b5;
+  padding: 5px;
+  margin-top: 5px;
 }

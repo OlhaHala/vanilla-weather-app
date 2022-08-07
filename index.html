@@ -15,7 +15,7 @@
   <body>
     <div class="container">
       <div class="weather-app-wrapper">
-        <div class="weather-app">
+        <div class="weather-app light" id="theme">
           <form id="search-form" class="mb-3">
             <div class="row">
               <div class="col-9">
@@ -49,10 +49,7 @@
                 <img src="" alt="Clear" id="icon" class="float-left" />
                 <span class="float-left">
                   <strong id="temperature"></strong>
-                  <span class="units"
-                    ><a href="#" id="celsius-link" class="active">°C</a>|
-                    <a href="#" id="farenheit-link">°F</a>
-                  </span></span
+                  <span class="units">C° </span></span
                 >
               </div>
             </div>
@@ -76,6 +73,7 @@
           by Olha Haladzhian
         </small>
       </div>
+      <button class="btn-toggle">Change theme</button>
     </div>
     <script src="src/app.js"></script>
   </body>

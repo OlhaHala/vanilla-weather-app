@@ -27,7 +27,7 @@ function formatDay(timestamp) {
   let days = [
     "Sunday",
     "Monday",
-    "Tuesaday",
+    "Tuesday",
     "Wednesday",
     "Thursday",
     "Friday",
@@ -41,7 +41,7 @@ function displayForecast(response) {
   let forecastElement = document.querySelector("#forecast");
   let forecastHTML = `<div class="row">`;
   forecast.forEach(function (forecastDay, index) {
-    if (index < 5) {
+    if (index < 6 && index > 0) {
       forecastHTML =
         forecastHTML +
         `<div class="col">
@@ -71,7 +71,6 @@ function displayForecast(response) {
 }
 
 function getForecast(coordinates) {
-  console.log(coordinates);
   let apiKey = "6787254059ff334afbc56a41b925e8c5";
   let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${coordinates.lat}&lon=${coordinates.lon}&appid=${apiKey}&units=metric`;
   axios.get(apiUrl).then(displayForecast);
@@ -111,31 +110,16 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
-function displayFarenheitTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.remove("active");
-  farenheitLink.classList.add("active");
-  let tempratureElement = document.querySelector("#temperature");
-  let farenheitTemp = (celsiusTemp * 9) / 5 + 32;
+let btn = document.querySelector(".btn-toggle");
+// Отслеживаем щелчок по кнопке
+btn.addEventListener("click", function () {
+  // Затем переключаем (добавляем/удаляем) класс .dark-theme для body
+  changeTheme.classList.remove("light");
+  changeTheme.classList.add("dark");
+});
 
-  tempratureElement.innerHTML = Math.round(farenheitTemp);
-}
-function displayCelsiusTemp(event) {
-  event.preventDefault();
-  celsiusLink.classList.add("active");
-  farenheitLink.classList.remove("active");
-  let tempratureElement = document.querySelector("#temperature");
-  tempratureElement.innerHTML = Math.round(celsiusTemp);
-}
-
-let celsiusTemp = null;
-
+let changeTheme = document.querySelector("#theme");
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
-
-let farenheitLink = document.querySelector("#farenheit-link");
-farenheitLink.addEventListener("click", displayFarenheitTemp);
-let celsiusLink = document.querySelector("#celsius-link");
-celsiusLink.addEventListener("click", displayCelsiusTemp);
 
 search("Odesa");
