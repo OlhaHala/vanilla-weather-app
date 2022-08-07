@@ -34,7 +34,7 @@ a {
   background-color: black;
 }
 .weather-app-wrapper {
-  max-width: 650px;
+  max-width: 600px;
   margin: 30px auto;
 }
 .weather-app {
@@ -63,8 +63,9 @@ a {
 }
 .weather-temperature img {
   margin-right: 5px;
-  height: 70px;
-  width: 70px;
+  margin-bottom: 40px;
+  height: 80px;
+  width: 80px;
 }
 .weather-temperature strong {
   color: #5c5470;
